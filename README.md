@@ -1,16 +1,16 @@
-<img src="https://raw.githubusercontent.com/hetman-app/hetman-pipeline/main/docs/assets/full-white-text.webp" alt="Hetman Logo" width="200" height="38" />
+<img src="https://raw.githubusercontent.com/krywok/krywok-pipeline/main/docs/assets/full-white-text.webp" alt="Krywok Logo" width="200" height="38" />
 
-**Hetman Kit Environment** is a developer-centric environment variable manager. It leverages the **Hetman Pipeline** engine to treat environment variables not just as strings, but as strictly validated and transformed data structures.
+**Krywok Kit Environment** is a developer-centric environment variable manager. It leverages the **Krywok Pipeline** engine to treat environment variables not just as strings, but as strictly validated and transformed data structures.
 
 ## Installation
 
 ```bash
-pip install hetman-kit-env
+pip install krywok-kit-env
 ```
 
 ## Why use this?
 
-Standard `os.environ.get` returns strings and provides no validation. **Hetman Kit Environment** allows you to:
+Standard `os.environ.get` returns strings and provides no validation. **Krywok Kit Environment** allows you to:
 
 1. **Validate** length, patterns, and types immediately.
 2. **Transform** values (lowercase, strip, cast) during retrieval.
@@ -20,7 +20,7 @@ Standard `os.environ.get` returns strings and provides no validation. **Hetman K
 ## Usage Example
 
 ```python
-from hetman_kit_env import EnvironmentVariable
+from krywok_kit_env import EnvironmentVariable
 from pipeline import Condition, Match, Transform
 
 # Set the path for your .env file
@@ -53,14 +53,14 @@ API_PORT: int = EnvironmentVariable[int](name="API_PORT", type=int)()
 
 You don't have to manually call `.get` every time. The `EnvironmentVariable` instance implements magic methods to make your code cleaner:
 
--   **Direct Comparison**: Use `==` to compare the variable directly with a value.
+- **Direct Comparison**: Use `==` to compare the variable directly with a value.
 
     ```python
     if SECRET_KEY == "expected_hash_value":
         ...
     ```
 
--   **Boolean Logic**: Use it directly in `if` statements to check if the value is truthy.
+- **Boolean Logic**: Use it directly in `if` statements to check if the value is truthy.
 
     ```python
     DEBUG_MODE = EnvironmentVariable[bool](name="DEBUG", optional=True)
@@ -69,13 +69,13 @@ You don't have to manually call `.get` every time. The `EnvironmentVariable` ins
         print("Debug is enabled")
     ```
 
--   **String Conversion**: Use it directly in f-strings or `print()`.
+- **String Conversion**: Use it directly in f-strings or `print()`.
 
     ```python
     print(f"API_URL: {API_URL}")
     ```
 
--   **Callable shorthand**: Call the object like a function to get the value.
+- **Callable shorthand**: Call the object like a function to get the value.
 
     ```python
     current_key = SECRET_KEY()
@@ -83,11 +83,11 @@ You don't have to manually call `.get` every time. The `EnvironmentVariable` ins
 
 ## Core Features
 
--   **Strict Typing**: Use Python generics `EnvironmentVariable[T]` for better IDE support and type safety.
--   **JSON Ready**: Built-in `json.loads` support for complex environment configurations.
--   **Pipeline Integration**: Full access to the Pipeline execution flow (Type Check -> Setup -> Conditions -> Matches -> Transformations).
--   **Singleton .env Loading**: The `.env` file is loaded once and shared across all instances.
+- **Strict Typing**: Use Python generics `EnvironmentVariable[T]` for better IDE support and type safety.
+- **JSON Ready**: Built-in `json.loads` support for complex environment configurations.
+- **Pipeline Integration**: Full access to the Pipeline execution flow (Type Check -> Setup -> Conditions -> Matches -> Transformations).
+- **Singleton .env Loading**: The `.env` file is loaded once and shared across all instances.
 
 ## Documentation
 
-This package uses the **Hetman Pipeline** logic for its core processing. To learn more about available conditions, matches, and transformations, visit [Official Documentation](https://pipeline.hetman.app)
+This package uses the **Krywok Pipeline** logic for its core processing. To learn more about available conditions, matches, and transformations, visit [Official Documentation](https://pipeline.krywok.com)

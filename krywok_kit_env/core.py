@@ -20,7 +20,7 @@ class EnvironmentVariable(Generic[T]):
     """
     Handles fetching, parsing, and validating environment variables.
 
-    This class integrates with the `hetman-pipeline` system to automatically validate and 
+    This class integrates with the `krywok-pipeline` system to automatically validate and 
     transform values retrieved from the system environment (`os.environ`). 
     It supports optional `.env` file loading and automatic JSON parsing.
 
